@@ -21,7 +21,7 @@ pipeline {
       stage ('Deploy-To-Tomcat') {
             steps {
 		    sshagent(['tomcat']){
-                    sh 'scp -o StrictHostKeyChecking=no /var/lib/jenkins/workspace/CICD Pipeline/target/JavaVulnerableLab.war osboxes@192.168.113.146:/home/opt/tomcat/webapps/webapp.war'
+                    sh 'scp -o StrictHostKeyChecking=no /var/lib/jenkins/workspace/CICD Pipeline/target/JavaVulnerableLab.war /home/opt/tomcat/webapps/webapp.war'
               }      
            }       
     }
