@@ -1,8 +1,3 @@
-/*
- 
- * and open the template in the editor.
- */
-
 package org.cysecurity.cspf.jvl.controller;
 
 import java.io.BufferedWriter;
