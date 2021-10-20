@@ -20,7 +20,7 @@ pipeline {
         } 
       stage ('Deploy-To-Tomcat') {
             steps {
-	   sshagent(['tomcat'])
+		    sshagent(['tomcat']){
                     sh 'scp -o  target/*.war osboxes@192.168.113.146:/home/opt/tomcat/webapps/webapp.war'
               }      
            }       
