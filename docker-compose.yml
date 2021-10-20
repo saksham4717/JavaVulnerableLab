@@ -1,5 +1,3 @@
-//For Making App in Docker
-
 javavulnlab:
   build: .
   ports:
