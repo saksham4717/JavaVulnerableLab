@@ -31,8 +31,8 @@ pipeline {
 		steps {
 		     sh 'rm owasp-* || true'
 		     sh 'wget https://raw.githubusercontent.com/yugansh23/JavaVulnerableLab/master/owasp_dependency_check.sh'	
-		     sh 'chmod +x owasp-dependency-check.sh'
-		     sh 'bash owasp-dependency-check.sh'
+		     sh 'chmod +x owasp_dependency_check.sh'
+		     sh 'bash owasp_dependency_check.sh'
 		     sh 'cat /var/lib/jenkins/OWASP-Dependency-Check/reports/dependency-check-report.xml'
 		}
 	}
