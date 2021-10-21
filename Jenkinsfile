@@ -20,14 +20,7 @@ pipeline {
 		sh 'cat trufflehog'
 	    }
 	    }
-	    
-	  stage ('Build') {
-            steps {
-                sh 'mvn clean package'
-            }
-        } 
-	    
-	   stage ('Source-Composition-Analysis') {
+	     stage ('Source-Composition-Analysis') {
 		steps {
 		     sh 'rm owasp-* || true'
 		     sh 'wget https://raw.githubusercontent.com/yugansh23/JavaVulnerableLab/master/owasp_dependency_check.sh'	
@@ -36,6 +29,14 @@ pipeline {
 		     sh 'cat /var/lib/jenkins/OWASP-Dependency-Check/reports/dependency-check-report.xml'
 		}
 	}
+	    
+	  stage ('Build') {
+            steps {
+                sh 'mvn clean package'
+            }
+        } 
+	    
+	  
       stage ('Deploy-To-Tomcat') {
             steps {
 		    sshagent(['tomcat']){
