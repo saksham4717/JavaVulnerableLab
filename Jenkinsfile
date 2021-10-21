@@ -26,7 +26,7 @@ pipeline {
 		     sh 'wget https://raw.githubusercontent.com/yugansh23/JavaVulnerableLab/master/owasp_dependency_check.sh'	
 		     sh 'chmod +x owasp_dependency_check.sh'
 		     sh 'bash owasp_dependency_check.sh'
-		     sh 'cat /var/lib/jenkins/OWASP-Dependency-Check/reports/dependency-check-report.xml'
+		     sh 'cat /home/jenkins/OWASP-Dependency-Check/reports/dependency-check-report.xml'
 		}
 	}
 	    
@@ -40,7 +40,7 @@ pipeline {
       stage ('Deploy-To-Tomcat') {
             steps {
 		    sshagent(['tomcat']){
-                    sh 'scp -o StrictHostKeyChecking=no /var/lib/jenkins/workspace/CICDPipeline/target/JavaVulnerableLab.war  /opt/tomcat/webapps/'
+                    sh 'scp -o StrictHostKeyChecking=no /home/jenkins/workspace/CICDPipeline/target/JavaVulnerableLab.war  /opt/tomcat/webapps/'
               }      
            }       
     }
